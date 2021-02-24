@@ -9,7 +9,6 @@ int main (int argc, char **argv){
       if(argc > 1){
             int fd, fd2, longitud_cliente, puerto;
             puerto = atoi(argv[1]);
-
             struct sockaddr_in server;
             struct sockaddr_in client;
 
@@ -38,20 +37,23 @@ int main (int argc, char **argv){
             }else{
                   printf("socket escuchando en %d\n", puerto);
             }
-            
+
             while (1){
                   longitud_cliente = sizeof(struct sockaddr_in);
 
                   if((fd2 = accept(fd,(struct sockaddr *)&client,&longitud_cliente))==-1){
                         printf("error al aceptar conexion");
                         exit(-1);
+                  }else{
+                        printf("cliente conectado\n");
+                        
                   }
+                  
+                  send(fd2,"un mensaje desde el server en c\n",34,0);
 
-                  send(fd2,"holaaaaaa\n",26,0);
-
-                  //close(fd2);
+             //     close(fd2);
             }
-            //close(fd);
+           // close(fd);
             
       }else{
             printf("ocurrio un error, revise que los parametros sean correctos\n");
