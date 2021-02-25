@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <string.h>
+#include <unistd.h>
 
 int main (int argc, char **argv){
       if(argc > 1){
@@ -51,9 +52,9 @@ int main (int argc, char **argv){
                   
                   send(fd2,"un mensaje desde el server en c\n",34,0);
 
-             //     close(fd2);
+                  close(fd2);
             }
-           // close(fd);
+           close(fd);
             
       }else{
             printf("ocurrio un error, revise que los parametros sean correctos\n");
