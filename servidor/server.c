@@ -25,28 +25,28 @@ int main (int argc, char **argv){
                   perror("Error al crear el socket\n");
                   exit(-1);
             }else{
-                  printf("socket inicializado\n");
+                  printf("Socket inicializado\n");
             }
 
             if(bind(fd,(struct sockaddr *)&server, sizeof(struct sockaddr))==-1){
-                  printf("error en bind\n");
+                  printf("Error en bind\n");
                   exit(-1);
             }else{
-                  printf("socket creado\n");
+                  printf("Socket creado\n");
             }
 
             if(listen(fd,SOMAXCONN)==-1){//el segundo valor es el numero de conexiones permitidas, en este caso es el maximo posible
-                  printf("error en el listen\n");
+                  printf("Error en el listen\n");
                   exit(-1);
             }else{
-                  printf("socket escuchando en %d\n", puerto);
+                  printf("Socket escuchando en %d\n", puerto);
             }
 
             while (1){
                   longitud_cliente = sizeof(struct sockaddr_in);
 
                   if((fd2 = accept(fd,(struct sockaddr *)&client,&longitud_cliente))==-1){
-                        printf("error al aceptar conexion");
+                        printf("Error al aceptar conexion");
                         exit(-1);
                   }else{
                         printf("cliente conectado\n");
@@ -56,10 +56,10 @@ int main (int argc, char **argv){
                   if ((numbytes=recv(fd2,buf,100,0)) == -1){
                         printf("Error en recv() \n");
                   }else{
-                        printf("Mensaje del Servidor: %s\n",buf);
+                        printf("Mensaje del Cliente: %s\n",buf);
                   }
 
-                  send(fd2,"un mensaje desde el server en c\n",34,0);
+                  send(fd2,"Un mensaje desde el server en c\n",34,0);
 
                   close(fd2);
             }

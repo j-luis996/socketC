@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
             bzero(&(server.sin_zero),8);
 
             if(connect(fd, (struct sockaddr *)&server,sizeof(struct sockaddr)) == -1){
-                  printf("connect() error\n");
+                  printf("Connect() error\n");
                   exit(0);
             }
 
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
 
             close(fd);
       }else{
-            printf("No se ingreso el ip y puerto por parametro\n");
+            printf("No se ingreso el IP y Puerto por parametro\n");
       }
  
 }

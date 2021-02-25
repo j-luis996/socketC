@@ -13,8 +13,8 @@ public class cliente {
                 PrintWriter escritor = new PrintWriter(socketEco.getOutputStream(),true);
                 BufferedReader lector = new BufferedReader(new InputStreamReader(socketEco.getInputStream()));
                 ) {
-                    escritor.println("holaaaa desde el cliente\0");
-                    System.out.println("mensaje del servidor: "+lector.readLine());
+                    escritor.println("Hola desde el cliente en Java\0");
+                    System.out.println("Mensaje del servidor: "+lector.readLine());
 
         } catch (UnknownHostException e) {
             System.err.println("No conozco al host " + nombreHost);
