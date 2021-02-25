@@ -10,16 +10,17 @@ public class cliente {
 
         try (
                 Socket socketEco = new Socket(nombreHost, numeroPuerto);
+                PrintWriter escritor = new PrintWriter(socketEco.getOutputStream(),true);
                 BufferedReader lector = new BufferedReader(new InputStreamReader(socketEco.getInputStream()));
                 ) {
-            System.out.println("mensaje del servidor: "+lector.readLine());
+                    escritor.println("holaaaa desde el cliente\0");
+                    System.out.println("mensaje del servidor: "+lector.readLine());
 
         } catch (UnknownHostException e) {
             System.err.println("No conozco al host " + nombreHost);
             System.exit(1);
         } catch (IOException e) {
-            System.err.println("no se pudo obtener E/S para la conexion "
-                    + nombreHost);
+            System.err.println("no se pudo obtener E/S para la conexion " + nombreHost);
             System.exit(1);
         }
     }

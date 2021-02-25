@@ -13,6 +13,9 @@ int main (int argc, char **argv){
             struct sockaddr_in server;
             struct sockaddr_in client;
 
+            int numbytes;
+            char buf[100];
+
             server.sin_family = AF_INET;
             server.sin_port = htons(puerto);
             server.sin_addr.s_addr = INADDR_ANY;
@@ -50,6 +53,12 @@ int main (int argc, char **argv){
                         
                   }
                   
+                  if ((numbytes=recv(fd2,buf,100,0)) == -1){
+                        printf("Error en recv() \n");
+                  }else{
+                        printf("Mensaje del Servidor: %s\n",buf);
+                  }
+
                   send(fd2,"un mensaje desde el server en c\n",34,0);
 
                   close(fd2);
