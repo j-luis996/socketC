@@ -18,10 +18,12 @@ luego "Adiós" y un caracter nulo o vacio.
 
 Muestre el funcionamiento de estos programas comunicando servidores y clientes ,
 en el siguiente orden
+
       -Servidor ( en java) con cliente en C
       -Servidor ( en C) con cliente Java
       -Servidor y cliente en java
       -Servidor y cliente en C
+      
 La prueba y revisión de este ejercicio consiste en:
 Ejecutar cualquiera de los dos servidores (el de C o el de java) con cualquiera de
 
