@@ -3,7 +3,7 @@
 import java.net.*; // paquete que contienen clases de red , todo lo necesario para comunicarme en red
 import java.io.*; // paquete que contienen clases para E/S teclado y monitor
 
-public class Servidor_Eco {
+public class Servidor {
     
     public static void main(String[] args) throws IOException {
         
@@ -23,11 +23,9 @@ public class Servidor_Eco {
             
 
         ) {
-            System.out.println("Escuchando.........");
-            String linealeida;
-            while ((linealeida = lector.readLine()) != null) {
-                escritor.println(linealeida);
-            }
+            System.out.println("Mensaje del cliente: "+lector.readLine());
+            escritor.println("Hola desde el server en java\0");
+           
         } catch (IOException e) {
             System.out.println(" ocurrio una excepcion cuando intentamos escuchar " + numeroPuerto + " o esperando por una conexicon");
             System.out.println(e.getMessage());

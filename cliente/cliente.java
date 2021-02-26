@@ -5,7 +5,7 @@ public class cliente {
 
     public static void main(String[] args) throws IOException {
 
-        String nombreHost = "192.168.100.20";
+        String nombreHost = "127.0.0.1";
         int numeroPuerto = 8080;
 
         try (
