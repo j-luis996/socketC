@@ -20,9 +20,10 @@ public class Servidor_Eco {
             Socket socketdelCliente = socketdelServidor.accept();// se acepta la peticion     
             PrintWriter escritor = new PrintWriter(socketdelCliente.getOutputStream(), true);                   
             BufferedReader lector = new BufferedReader( new InputStreamReader(socketdelCliente.getInputStream()));
-            System.out.println("Escuchando.........");
+            
 
         ) {
+            System.out.println("Escuchando.........");
             String linealeida;
             while ((linealeida = lector.readLine()) != null) {
                 escritor.println(linealeida);
