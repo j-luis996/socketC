@@ -38,7 +38,8 @@ int main(int argc, char *argv[]){
                   printf("Connect() error\n");
                   exit(0);
             }
-
+            send (fd,"Un mensaje desde el cliente en C \n",34,0);
+            
             if ((numbytes=recv(fd,buf,100,0)) == -1){
                   printf("Error en recv() \n");
                   exit(0);
