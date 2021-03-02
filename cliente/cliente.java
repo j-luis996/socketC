@@ -7,13 +7,16 @@ public class cliente {
 
         String nombreHost = "127.0.0.1";
         int numeroPuerto = 8080;
+        String mensaje = "Hola desde el cliente en Java\0";
+        int longMensaje = mensaje.length();
 
         try (
                 Socket socketEco = new Socket(nombreHost, numeroPuerto);
                 PrintWriter escritor = new PrintWriter(socketEco.getOutputStream(),true);
                 BufferedReader lector = new BufferedReader(new InputStreamReader(socketEco.getInputStream()));
                 ) {
-                    escritor.println("Hola desde el cliente en Java\0");
+                    escritor.println(Integer.toString(longMensaje));
+                    escritor.println(mensaje);
                     System.out.println("Mensaje del servidor: "+lector.readLine());
 
         } catch (UnknownHostException e) {
