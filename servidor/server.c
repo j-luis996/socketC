@@ -14,7 +14,7 @@ int main (int argc, char **argv){
             struct sockaddr_in client;
 
             int numbytes;
-            char *buf,*bufLongMen=(char*)malloc ( 4*sizeof(char) );
+            char *buf,*bufLongMen;
             int longMensaje;
 
             server.sin_family = AF_INET;
@@ -45,6 +45,7 @@ int main (int argc, char **argv){
 
             while (1){
                   longitud_cliente = sizeof(struct sockaddr_in);
+                  bufLongMen=(char*)malloc ( 4*sizeof(char) );
 
                   if((fd2 = accept(fd,(struct sockaddr *)&client,&longitud_cliente))==-1){
                         printf("Error al aceptar conexion");
@@ -76,6 +77,7 @@ int main (int argc, char **argv){
 
                   free(buf);
                   free(bufLongMen);
+
                   close(fd2);
             }
            close(fd);
