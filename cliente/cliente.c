@@ -62,7 +62,7 @@ int main(int argc, char *argv[]){
             }
             longMen = strlen(mensajeEnviar);
             itoa_(longMen,cLongMen);
-
+            strcat(cLongMen,"\n");
             send (fd,cLongMen,4,0);
             send (fd,mensajeEnviar,longMen,0);
             

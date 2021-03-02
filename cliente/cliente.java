@@ -7,7 +7,7 @@ public class cliente {
 
         String nombreHost = "127.0.0.1";
         int numeroPuerto = 8080;
-        String mensaje = "Hola desde el cliente en Java\0";
+        String mensaje = "Hola desde el cliente en Java\n";
         int longMensaje = mensaje.length();
 
         try (
