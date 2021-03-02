@@ -14,7 +14,8 @@ int main (int argc, char **argv){
             struct sockaddr_in client;
 
             int numbytes;
-            char buf[100];
+            char *buf,*bufLongMen=(char*)malloc ( 4*sizeof(char) );
+            int longMensaje;
 
             server.sin_family = AF_INET;
             server.sin_port = htons(puerto);
@@ -52,8 +53,20 @@ int main (int argc, char **argv){
                         printf("cliente conectado\n");
                         
                   }
+
+                  if ((numbytes=recv(fd2,bufLongMen,4,0)) == -1){
+                        printf("Error en recv() \n");
+                  }else{
+                        longMensaje = atoi(bufLongMen);
+                        printf("Longitud del mensaje %d \n",longMensaje);
+                        numbytes = 0;
+                        buf= NULL;
+                  }
+
+
+                  buf = (char*)malloc ( longMensaje*sizeof(char) );
                   
-                  if ((numbytes=recv(fd2,buf,100,0)) == -1){
+                  if ((numbytes=recv(fd2,buf,longMensaje,0)) == -1){
                         printf("Error en recv() \n");
                   }else{
                         printf("Mensaje del Cliente: %s\n",buf);
@@ -61,6 +74,8 @@ int main (int argc, char **argv){
 
                   send(fd2,"Un mensaje desde el server en c\n",34,0);
 
+                  free(buf);
+                  free(bufLongMen);
                   close(fd2);
             }
            close(fd);
